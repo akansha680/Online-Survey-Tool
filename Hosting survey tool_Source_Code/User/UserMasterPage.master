@@ -1,0 +1,111 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMasterPage.master.cs" Inherits="User_UserMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+     <script type="text/javascript">
+          function DisableCtrlKey(e) {
+              if (e.keyCode == 17) {
+                  alert("This Function Not Allowed Here");
+              }
+}
+function DisableRightClick(event) 
+{
+    if (event.button == 2)
+    {
+        alert("This Function Not Allowed Here");
+    }
+}
+function disableBackButton() {
+    window.history.forward();
+}
+setTimeout("disableBackButton()", 0);
+</script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta name="robots" content="index,follow"/>
+<meta name="distribution" content="global"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body onload="disableBackButton()" onmousedown="DisableRightClick(event)" onkeydown="return DisableCtrlKey(event)">
+<style type="text/css">
+ .style8
+        {
+           
+	        font-weight:bold;
+	        color:#2D3A48;
+	        font-size:12px;
+	        
+	        font-family: Verdana, Arial, Helvetica, sans-serif;
+	       
+        }
+</style>
+<form id="frm1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+<center>&nbsp;</center>
+<div id="container">
+  <div id="header">
+    <div id="logotip">
+      <h1 id="logo"><a href="#" title="Company Title - return to the homepage"></a></h1>
+    </div>
+  </div>
+  <div id="main">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+      
+       <tr>
+        <td style="text-align:left; width:173px;"><strong><span style="font-size: 10pt; color: #ffffff">
+            Welcome To <%=Session["LoginId"].ToString().ToUpper()%></span></strong></td>
+            <td style="text-align:left">
+                      <asp:Menu Width="519px" ID="Menu1" runat="server" Orientation="Horizontal" Height="24px" 
+                        style="font-weight:bolder; margin-left: 0px;" CssClass="style8">
+                        <StaticMenuItemStyle  ForeColor="black"/>
+                          <StaticHoverStyle BackColor="#C7CCD0" />
+                        <DynamicHoverStyle BackColor="Green" ForeColor="White" />
+                        <DynamicMenuItemStyle BackColor="#999999" />
+                        <Items>
+                            <asp:MenuItem Text="||" Value="||"></asp:MenuItem>
+                            <asp:MenuItem Value="      Home   " Text="    Home   "></asp:MenuItem>
+                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                            <asp:MenuItem Text="    Products" Value="    Products" 
+                                NavigateUrl="~/User/frmProductDetails.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                            <asp:MenuItem Text="     My Account " NavigateUrl="~/User/frmMyAccount.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/User/frmChangePassword.aspx" 
+                                Text="Change PassWord" Value="Change PassWord"></asp:MenuItem>
+                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/frmLogOut.aspx" Text="SignOut" Value="SignOut">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="||" Value="||"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+                <td>
+                    &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+  </div>
+  <div id="footer">Copyrights ©&nbsp; All rights reserved. </div>
+  </div>
+<!-- ImageReady Slices (25.psd) --><!-- End ImageReady Slices -->
+<!-- Designed by DreamTemplate. Please leave link unmodified. Thank you -->
+<center></center></form>
+</body>
+</html>
+

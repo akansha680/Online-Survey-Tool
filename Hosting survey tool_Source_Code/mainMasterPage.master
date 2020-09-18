@@ -1,0 +1,118 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mainMasterPage.master.cs" Inherits="mainMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head id="Head1" runat="server">
+    <style type="text/css">
+        .style8 {
+            font-weight: bold;
+            color: #2D3A48;
+            font-size: 12px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <title>Untitled Page</title>
+    <script type="text/javascript">
+        function DisableCtrlKey(e) {
+            if (e.keyCode == 17) {
+                alert("This Function Not Allowed Here");
+            }
+        }
+        function DisableRightClick(event) {
+            if (event.button == 2) {
+                alert("This Function Not Allowed Here");
+            }
+        }
+        function disableBackButton() {
+            window.history.forward();
+        }
+        setTimeout("disableBackButton()", 0);
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="robots" content="index,follow" />
+    <meta name="distribution" content="global" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body onload="disableBackButton()" onmousedown="DisableRightClick(event)" onkeydown="return DisableCtrlKey(event)">
+
+    <center>&nbsp;</center>
+
+    <table id="container">
+        <tr>
+            <td>
+
+
+                <div id="header">
+                    <div id="logotip">
+                        <h1 id="logo"><a href="#" title="Company Title - return to the homepage"></a></h1>
+                    </div>
+                </div>
+
+                <form id="frm" runat="server">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+
+                        <tr>
+                            <td>
+                                <center>
+
+                                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>
+                                    <asp:Menu ID="Menu1" runat="server" Height="30px" Orientation="Horizontal"
+                                        Width="776px" Style="font-weight: bolder" CssClass="style8">
+                                        <StaticMenuItemStyle ForeColor="Black" />
+                                        <StaticHoverStyle BackColor="#C7CCD0" />
+                                        <Items>
+                                            <asp:MenuItem Text="||" Value="||"></asp:MenuItem>
+                                            <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/frmHome.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                                            <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="~/frmAboutUs.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                                            <asp:MenuItem Text="Contact Us" Value="Contact Us"
+                                                NavigateUrl="~/frmContactUs.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                                            <asp:MenuItem Text="Products" Value="Products"
+                                                NavigateUrl="~/frmProductDetails.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                                            <asp:MenuItem Text="Registration" Value="Registration"
+                                                NavigateUrl="~/frmRegistration.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                                            <asp:MenuItem Text="Admin Login" Value="Login"
+                                                NavigateUrl="~/Admin/Default.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="|" Value="|"></asp:MenuItem>
+                                            <asp:MenuItem NavigateUrl="~/User/Default.aspx" Text="User Login"
+                                                Value="User Login"></asp:MenuItem>
+                                            <asp:MenuItem Text="||" Value="||"></asp:MenuItem>
+                                        </Items>
+                                    </asp:Menu>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+
+
+                        <tr id="footer">
+                            <td>Copyrights &copy;&nbsp; All rights reserved.</td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <!-- ImageReady Slices (25.psd) -->
+    <!-- End ImageReady Slices -->
+    <!-- Designed by DreamTemplate. Please leave link unmodified. Thank you -->
+
+</body>
+</html>
